@@ -1,0 +1,62 @@
+/*
+API Types for the Presentation Generator Demo
+*/
+
+syntax = "proto3";
+
+package demos.solo.io;
+
+option go_package = "github.com/ilackarms/solo-kit-demo/pkg/api/v1";
+
+// gogo-proto is required by solo-kit
+import "gogoproto/gogo.proto";
+// solo-kit requires the Equal method to be generated for its types
+option (gogoproto.equal_all) = true;
+
+import "github.com/solo-io/solo-kit/api/v1/metadata.proto";
+import "github.com/solo-io/solo-kit/api/v1/status.proto";
+import "github.com/solo-io/solo-kit/api/v1/solo-kit.proto";
+
+/*
+Presentation defines the Presentation Template that should be created.
+Create, delete, and update these resources to create update and delete new presentations.
+*/
+message Presentation {
+
+    option (core.solo.io.resource).short_name = "pr";
+    option (core.solo.io.resource).plural_name = "presentations";
+
+    // required solo-kit field
+    // the presence of this field turns this resource into a solo-kit resource
+    core.solo.io.Metadata metadata = 1 [(gogoproto.nullable) = false];
+
+    // optional status, allows us to report back to the user
+    // any validation / status
+    core.solo.io.Status status = 2 [(gogoproto.nullable) = false];
+
+    // title of the presentation
+    string title = 3;
+
+    // title of the content slide
+    string content_slide_title = 4;
+
+    // content of the content slide
+    string content_slide_content = 5;
+}
+
+/*
+GoogleApiKey is a secret containing an API Key for talking to Google Slides API
+*/
+message GoogleApiKey {
+
+    option (core.solo.io.resource).short_name = "gk";
+    option (core.solo.io.resource).plural_name = "googleapikeys";
+
+    // required solo-kit field
+    // the presence of this field turns this resource into a solo-kit resource
+    core.solo.io.Metadata metadata = 1 [(gogoproto.nullable) = false];
+
+
+    // credentials.json encoded as a base-64 string
+    string credentials_base64 = 2;
+}

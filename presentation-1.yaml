@@ -1,0 +1,11 @@
+apiVersion: demos.solo.io/v1
+kind: Presentation
+metadata:
+  name: presentation-1
+  namespace: default
+spec:
+  contentSlideContent: |
+    * You might think that coming up with demo ideas is easy.
+    * But it's a lot harder than you think.
+  contentSlideTitle: Why Coming Up with Demo Ideas is Difficult
+  title: Demo Ideas

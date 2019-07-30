@@ -1,0 +1,18 @@
+{
+  "title": "Solo-Kit Demo Project",
+  "name": "demos.solo.io",
+  "version": "v1",
+  "docs_dir": "../docs",
+  "resource_groups": {
+    "presentations.demos.solo.io": [
+      {
+        "name": "Presentation",
+        "package": "demos.solo.io"
+      },
+      {
+        "name": "GoogleApiKey",
+        "package": "demos.solo.io"
+      }
+    ]
+  }
+}
