@@ -11,3 +11,6 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 vendor
+google-api-key.json
+slides-creds.json
+token.json
